@@ -1,0 +1,25 @@
+# Operating systems
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs / local tooling
+*.log
+.cache/
+.tmp/
+
+# Local-only environment files
+.env
+.env.*
+!.env.example
+
+# Build output (this project is static; keep generated assets in src/assets)
+dist/
+build/
+node_modules/
