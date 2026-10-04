@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#245edb" />
+    <meta
+      name="description"
+      content="An interactive Windows XP-inspired portfolio desktop. Open the programs to explore selected design and digital work."
+    />
+    <meta name="author" content="Alex Morgan" />
+    <meta property="og:title" content="Alex Morgan — Desktop Portfolio" />
+    <meta
+      property="og:description"
+      content="A little portfolio, arranged like a desktop from another time."
+    />
+    <meta property="og:type" content="website" />
+    <title>Alex Morgan — Desktop Portfolio</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="src/styles/xp.css" />
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <script type="module" src="src/scripts/main.js"></script>
+  </head>
+  <body class="crt-on">
+    <a class="skip-link" href="#desktop-icons">Skip to desktop programs</a>
+    <a class="skip-link skip-link-second" href="#start-button"
+      >Skip to Start menu</a
+    >
+
+    <!-- Accessible summary for search engines and assistive technology. -->
+    <section class="sr-only" aria-label="Portfolio overview">
+      <h1>Alex Morgan — Independent designer and creative developer</h1>
+      <p>
+        This portfolio is an interactive desktop. Log in, open About Me for the
+        profile, My Projects for selected work, My Resume for experience, or
+        Contact Me to send a note.
+      </p>
+      <p>
+        The portfolio desktop also includes a small collection of nostalgic
+        utilities and games. Every key portfolio page is available from the
+        Start menu.
+      </p>
+    </section>
+
+    <section id="boot-screen" class="boot-screen" aria-label="Starting desktop">
+      <div class="boot-center">
+        <div class="boot-brand" aria-label="Windows XP">
+          <svg class="windows-mark" viewBox="0 0 64 56" aria-hidden="true">
+            <path fill="#f35325" d="M2 8 29 4v22H2z" />
+            <path fill="#81bc06" d="m33 3 29-4v27H33z" />
+            <path fill="#05a6f0" d="M2 30h27v23L2 49z" />
+            <path fill="#ffba08" d="m33 30h29v26l-29-4z" />
+          </svg>
+          <span class="boot-wordmark"
+            ><small>Microsoft</small
+            ><strong>Windows<span>XP</span></strong></span
+          >
+        </div>
+        <div class="boot-rule"></div>
+        <p class="boot-caption">
+          A familiar desktop. A different point of view.
+        </p>
+        <div
+          class="boot-progress"
+          role="progressbar"
+          aria-label="Starting"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <span></span><span></span><span></span>
+        </div>
+        <button id="skip-boot" class="boot-skip" type="button">
+          Skip intro <span aria-hidden="true">›</span>
+        </button>
+      </div>
+      <div class="boot-footer">
+        <span>For the best experience</span
+        ><button type="button" data-action="fullscreen">
+          Enter Full Screen
+        </button>
+      </div>
+      <div class="boot-corner">
+        <span data-profile="boot-name">ALEX MORGAN</span>&nbsp; ·
+        &nbsp;PORTFOLIO
+      </div>
+    </section>
+
+    <section id="login-screen" class="login-screen" aria-label="Log in" hidden>
+      <div class="login-topline"></div>
+      <div class="login-inner">
+        <div class="login-left">
+          <div class="login-logo">
+            <svg
+              class="windows-mark login-windows-mark"
+              viewBox="0 0 64 56"
+              aria-hidden="true"
+            >
+              <path fill="#f35325" d="M2 8 29 4v22H2z" />
+              <path fill="#81bc06" d="m33 3 29-4v27H33z" />
+              <path fill="#05a6f0" d="M2 30h27v23L2 49z" />
+              <path fill="#ffba08" d="m33 30h29v26l-29-4z" />
+            </svg>
+            <span
+              ><strong>Welcome</strong
+              ><small data-profile="login-subtitle"
+                >to Alex's desktop</small
+              ></span
+            >
+          </div>
+          <p>To begin, click on your name to log in</p>
+          <p class="login-subcopy">
+            A personal archive of ideas, interfaces, and things made for the
+            web.
+          </p>
+        </div>
+        <div class="login-divider" aria-hidden="true"></div>
+        <div class="login-users">
+          <button
+            id="login-user"
+            class="login-user"
+            type="button"
+            aria-label="Log in as Alex Morgan"
+          >
+            <span class="login-avatar"
+              ><img
+                class="profile-avatar"
+                src="src/assets/avatar.svg"
+                alt=""
+              /><span class="avatar-spark" aria-hidden="true">✦</span></span
+            >
+            <span class="login-user-copy"
+              ><strong data-profile="name">Alex Morgan</strong
+              ><small data-profile="role"
+                >Digital Designer &amp; Creative Developer</small
+              ></span
+            >
+            <span class="login-arrow" aria-hidden="true">›</span>
+          </button>
+          <div class="login-other">
+            <span class="tiny-lock" data-icon="lock"></span
+            ><span>Protected by absolutely nothing but good taste.</span>
+          </div>
+        </div>
+      </div>
+      <div class="login-bottom">
+        <button type="button" data-action="shutdown" class="turn-off-button">
+          <span class="power-glyph" aria-hidden="true">⏻</span> Turn off
+          computer
+        </button>
+        <span class="login-hint">Click your user tile to continue</span>
+      </div>
+    </section>
+
+    <main id="desktop" class="desktop" aria-label="Portfolio desktop" hidden>
+      <div class="desktop-wallpaper" aria-hidden="true"></div>
+      <div class="desktop-sheen" aria-hidden="true"></div>
+      <div
+        id="desktop-icons"
+        class="desktop-icons"
+        role="list"
+        aria-label="Desktop programs"
+      >
+        <button
+          class="desktop-icon"
+          type="button"
+          role="listitem"
+          data-app="about"
+          data-icon="about"
+          style="--icon-x: 18px; --icon-y: 18px"
+        >
+          <span class="icon-slot"></span
+          ><span class="desktop-icon-label">About Me</span>
+        </button>
+        <button
+          class="desktop-icon"
+          type="button"
+          role="listitem"
+          data-app="projects"
+          data-icon="projects"
+          style="--icon-x: 18px; --icon-y: 112px"
+        >
+          <span class="icon-slot"></span
+          ><span class="desktop-icon-label">My Projects</span>
+        </button>
+        <button
+          class="desktop-icon"
+          type="button"
+          role="listitem"
+          data-app="resume"
+          data-icon="resume"
+          style="--icon-x: 18px; --icon-y: 206px"
+        >
+          <span class="icon-slot"></span
+          ><span class="desktop-icon-label">My Resume</span>
+        </button>
+        <button
+          class="desktop-icon"
+          type="button"
+          role="listitem"
+          data-app="contact"
+          data-icon="contact"
+          style="--icon-x: 18px; --icon-y: 300px"
+        >
+          <span class="icon-slot"></span
+          ><span class="desktop-icon-label">Contact Me</span>
+        </button>
+        <button
+          class="desktop-icon"
+          type="button"
+          role="listitem"
+          data-app="computer"
+          data-icon="computer"
+          style="--icon-x: 18px; --icon-y: 394px"
+        >
+          <span class="icon-slot"></span
+          ><span class="desktop-icon-label">My Computer</span>
+        </button>
+        <button
+          class="desktop-icon"
+          type="button"
+          role="listitem"
+          data-app="recycle"
+          data-icon="recycle"
+          style="--icon-x: 18px; --icon-y: 488px"
+        >
+          <span class="icon-slot"></span
+          ><span class="desktop-icon-label">Recycle Bin</span>
+        </button>
+      </div>
+
+      <div
+        id="window-layer"
+        class="window-layer"
+        aria-live="polite"
+        aria-label="Open program windows"
+      ></div>
+
+      <aside id="start-menu" class="start-menu" aria-label="Start menu" hidden>
+        <div class="start-menu-header">
+          <span class="start-avatar"
+            ><span class="avatar-monogram">AM</span></span
+          >
+          <span
+            ><strong data-profile="name">Alex Morgan</strong
+            ><small>Portfolio desktop</small></span
+          >
+          <span class="start-shine" aria-hidden="true">✦</span>
+        </div>
+        <div class="start-menu-body">
+          <div class="start-column start-column-main">
+            <p class="start-section-label">Pinned programs</p>
+            <button
+              class="start-program featured-program"
+              type="button"
+              data-app="projects"
+              data-icon="projects"
+            >
+              <span class="menu-icon"></span
+              ><span
+                ><strong>My Projects</strong
+                ><small>Selected work &amp; case studies</small></span
+              >
+            </button>
+            <button
+              class="start-program"
+              type="button"
+              data-app="about"
+              data-icon="about"
+            >
+              <span class="menu-icon"></span
+              ><span
+                ><strong>About Me</strong
+                ><small>A bit about how I work</small></span
+              >
+            </button>
+            <button
+              class="start-program"
+              type="button"
+              data-app="resume"
+              data-icon="resume"
+            >
+              <span class="menu-icon"></span
+              ><span><strong>My Resume</strong></span>
+            </button>
+            <button
+              class="start-program"
+              type="button"
+              data-app="contact"
+              data-icon="contact"
+            >
+              <span class="menu-icon"></span
+              ><span
+                ><strong>Contact Me</strong><small>Send a message</small></span
+              >
+            </button>
+            <div class="start-divider"></div>
+            <button
+              class="start-program"
+              type="button"
+              data-app="browser"
+              data-icon="browser"
+            >
+              <span class="menu-icon"></span
+              ><span
+                ><strong>Internet Explorer</strong
+                ><small>Browse the portfolio</small></span
+              >
+            </button>
+            <button
+              class="start-program"
+              type="button"
+              data-app="media"
+              data-icon="media"
+            >
+              <span class="menu-icon"></span
+              ><span><strong>Windows Media Player</strong></span>
+            </button>
+            <button
+              class="all-programs-button"
+              id="all-programs-button"
+              type="button"
+              aria-expanded="false"
+            >
+              <span class="menu-icon all-programs-mark"></span
+              ><strong>All Programs</strong><span class="menu-chevron">›</span>
+            </button>
+          </div>
+          <div class="start-column start-column-side">
+            <button
+              class="start-side-link"
+              type="button"
+              data-app="computer"
+              data-icon="computer"
+            >
+              <span class="menu-icon"></span>My Computer
+            </button>
+            <button
+              class="start-side-link"
+              type="button"
+              data-app="resume"
+              data-icon="resume"
+            >
+              <span class="menu-icon"></span>My Documents
+            </button>
+            <button
+              class="start-side-link"
+              type="button"
+              data-app="browser"
+              data-icon="network"
+            >
+              <span class="menu-icon"></span>My Network Places
+            </button>
+            <div class="start-side-rule"></div>
+            <button
+              class="start-side-link"
+              type="button"
+              data-app="help"
+              data-icon="help"
+            >
+              <span class="menu-icon"></span>Help and Support
+            </button>
+            <button
+              class="start-side-link"
+              type="button"
+              data-app="settings"
+              data-icon="settings"
+            >
+              <span class="menu-icon"></span>Control Panel
+            </button>
+            <div class="start-side-bottom">
+              <span class="side-os-badge">xp</span
+              ><span>Windows XP<br /><small>Portfolio edition</small></span>
+            </div>
+          </div>
+        </div>
+        <div class="start-menu-footer">
+          <button type="button" data-action="logoff">
+            <span class="footer-action-icon">↪</span> Log Off
+          </button>
+          <button type="button" data-action="shutdown">
+            <span class="footer-action-icon power-glyph">⏻</span> Turn Off
+            Computer
+          </button>
+        </div>
+        <div id="all-programs-panel" class="all-programs-panel" hidden>
+          <div class="all-programs-heading">All Programs <span>›</span></div>
+          <div class="program-category-list">
+            <button
+              class="program-category"
+              type="button"
+              data-category="portfolio"
+            >
+              <span class="menu-icon"></span><span>Portfolio</span
+              ><span class="menu-chevron">›</span>
+            </button>
+            <button
+              class="program-category"
+              type="button"
+              data-category="accessories"
+            >
+              <span class="menu-icon"></span><span>Accessories</span
+              ><span class="menu-chevron">›</span>
+            </button>
+            <button
+              class="program-category"
+              type="button"
+              data-category="media"
+            >
+              <span class="menu-icon"></span><span>Media</span
+              ><span class="menu-chevron">›</span>
+            </button>
+            <button
+              class="program-category"
+              type="button"
+              data-category="games"
+            >
+              <span class="menu-icon"></span><span>Games</span
+              ><span class="menu-chevron">›</span>
+            </button>
+            <div id="category-submenu" class="category-submenu" hidden></div>
+          </div>
+        </div>
+      </aside>
+
+      <div id="context-menu" class="context-menu" role="menu" hidden>
+        <button type="button" role="menuitem" data-action="desktop-view">
+          <span class="context-symbol">▦</span> View
+          <span class="context-arrow">›</span>
+        </button>
+        <button type="button" role="menuitem" data-action="arrange-icons">
+          <span class="context-symbol">▤</span> Arrange Icons By
+          <span class="context-arrow">›</span>
+        </button>
+        <div class="context-rule"></div>
+        <button type="button" role="menuitem" data-action="refresh">
+          <span class="context-symbol">↻</span> Refresh
+        </button>
+        <button type="button" role="menuitem" data-action="new-folder">
+          <span class="context-symbol">📁</span> New
+          <span class="context-arrow">›</span>
+        </button>
+        <div class="context-rule"></div>
+        <button type="button" role="menuitem" data-action="settings">
+          <span class="context-symbol">▧</span> Properties
+        </button>
+      </div>
+
+      <div
+        id="tray-flyout"
+        class="tray-flyout"
+        aria-label="System tray controls"
+        hidden
+      >
+        <div class="tray-flyout-title">Desktop settings</div>
+        <label class="tray-setting"
+          ><span>Screen glow</span
+          ><input id="crt-checkbox" type="checkbox" checked /><span
+            class="xp-check"
+          ></span
+        ></label>
+        <label class="tray-setting volume-setting"
+          ><span>Master volume</span
+          ><input id="volume-range" type="range" min="0" max="100" value="35"
+        /></label>
+        <button class="tray-action" type="button" data-action="fullscreen">
+          <span class="small-action-icon">⛶</span> Enter full screen
+        </button>
+        <button class="tray-action" type="button" data-action="settings">
+          <span class="small-action-icon">⚙</span> Display properties
+        </button>
+      </div>
+
+      <div id="clock-flyout" class="clock-flyout" aria-label="Calendar" hidden>
+        <div class="calendar-heading">
+          <strong id="calendar-month">October 2026</strong
+          ><span class="calendar-year">▾</span>
+        </div>
+        <div class="calendar-grid" aria-hidden="true">
+          <span>Su</span><span>Mo</span><span>Tu</span><span>We</span
+          ><span>Th</span><span>Fr</span><span>Sa</span>
+        </div>
+        <div class="calendar-days" id="calendar-days"></div>
+        <div class="calendar-footer">
+          <span class="calendar-dot"></span> Local time
+        </div>
+      </div>
+
+      <div id="welcome-tip" class="welcome-tip" hidden>
+        <button class="tip-close" type="button" aria-label="Dismiss tip">
+          ×</button
+        ><strong>Welcome!</strong
+        ><span
+          >Double-click a desktop icon, or choose a program from Start.</span
+        >
+      </div>
+
+      <div
+        id="power-dialog"
+        class="power-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="power-dialog-title"
+        hidden
+      >
+        <div
+          class="power-dialog-scrim"
+          data-action="cancel-power"
+          aria-hidden="true"
+        ></div>
+        <section class="power-dialog-panel">
+          <header class="power-dialog-title">
+            <span id="power-dialog-title">Log Off Windows</span
+            ><button
+              type="button"
+              data-action="cancel-power"
+              aria-label="Close"
+            >
+              ×
+            </button>
+          </header>
+          <div class="power-dialog-body">
+            <span class="power-dialog-mark">xp</span>
+            <p>What would you like the computer to do?</p>
+          </div>
+          <div class="power-options">
+            <button type="button" data-action="restart">
+              <span class="power-option-icon">↻</span><strong>Restart</strong>
+            </button>
+            <button type="button" data-action="logoff">
+              <span class="power-option-icon">↪</span><strong>Log Off</strong>
+            </button>
+            <button type="button" data-action="shutdown-now">
+              <span class="power-option-icon power-option-red">⏻</span
+              ><strong>Turn Off</strong>
+            </button>
+          </div>
+          <div class="power-dialog-footer">
+            <button class="xp-button" type="button" data-action="cancel-power">
+              Cancel
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <footer class="taskbar" aria-label="Taskbar">
+        <button
+          id="start-button"
+          class="start-button"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="start-window-mark" aria-hidden="true"></span
+          ><em>start</em>
+        </button>
+        <div
+          class="taskbar-divider taskbar-divider-one"
+          aria-hidden="true"
+        ></div>
+        <div class="quick-launch" aria-label="Quick launch">
+          <button
+            type="button"
+            class="quick-launch-button"
+            data-app="browser"
+            aria-label="Open Internet Explorer"
+            title="Internet Explorer"
+          >
+            <span data-icon="browser"></span>
+          </button>
+          <button
+            type="button"
+            class="quick-launch-button"
+            data-app="contact"
+            aria-label="Open Contact Me"
+            title="Contact Me"
+          >
+            <span data-icon="contact"></span>
+          </button>
+          <button
+            type="button"
+            class="quick-launch-button"
+            data-app="media"
+            aria-label="Open Media Player"
+            title="Windows Media Player"
+          >
+            <span data-icon="media"></span>
+          </button>
+        </div>
+        <div
+          class="taskbar-divider taskbar-divider-two"
+          aria-hidden="true"
+        ></div>
+        <div id="task-list" class="task-list" aria-label="Open programs"></div>
+        <div class="taskbar-tray">
+          <button
+            type="button"
+            id="tray-button"
+            class="tray-button"
+            aria-label="System tray controls"
+            aria-expanded="false"
+            title="Desktop settings"
+          >
+            <span data-icon="speaker"></span><span data-icon="shield"></span
+            ><span data-icon="crt"></span>
+          </button>
+          <button
+            type="button"
+            id="clock-button"
+            class="clock-button"
+            aria-label="Show calendar"
+            aria-expanded="false"
+          >
+            <time id="clock-time">12:00 PM</time>
+          </button>
+        </div>
+        <button
+          type="button"
+          id="show-desktop-button"
+          class="show-desktop-button"
+          aria-label="Show desktop"
+          title="Show desktop"
+        ></button>
+      </footer>
+      <div id="crt-overlay" class="crt-overlay" aria-hidden="true"></div>
+    </main>
+
+    <section
+      id="shutdown-screen"
+      class="shutdown-screen"
+      aria-label="Computer turned off"
+      hidden
+    >
+      <div class="shutdown-card">
+        <div class="shutdown-mark">xp</div>
+        <h1>It's now safe to close this tab.</h1>
+        <p>Your portfolio session has ended.</p>
+        <button type="button" id="power-on-button" class="xp-button">
+          Start again
+        </button>
+      </div>
+    </section>
+
+    <div
+      id="toast-host"
+      class="toast-host"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <div id="orientation-hint" class="orientation-hint" aria-hidden="true">
+      Tip: this desktop works best in portrait on a phone.
+    </div>
+  </body>
+</html>

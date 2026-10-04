@@ -1,0 +1,78 @@
+/* Self-contained, framework-free desktop chrome. Kept small so the template stays portable. */
+:root {
+  color-scheme: light;
+  --xp-surface: #ece9d8;
+  --xp-border: #003c74;
+  --xp-blue: #245edb;
+  --xp-blue-dark: #0b3c8e;
+  --xp-button-face: #ece9d8;
+  --xp-shadow: #404040;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { width: 100%; height: 100%; margin: 0; }
+body {
+  overflow: hidden;
+  color: #111;
+  background: #000;
+  font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+button, input, textarea, select { font: inherit; color: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 1px dotted #101010;
+  outline-offset: 2px;
+}
+img, svg { display: block; }
+::selection { background: #316ac5; color: #fff; }
+
+/* The raised, bevelled controls used inside the program windows. */
+.xp-button, .xp-control-button, .xp-input, .xp-select {
+  border: 1px solid;
+  border-color: #fff #7f7f7f #7f7f7f #fff;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #fff 0, #ece9d8 55%, #dfdac7 100%);
+  box-shadow: inset 1px 1px #f8f7f0, inset -1px -1px #c8c4b6;
+}
+.xp-button, .xp-control-button {
+  min-height: 25px;
+  padding: 3px 12px;
+  cursor: pointer;
+}
+.xp-button:hover, .xp-control-button:hover { background: linear-gradient(#fff, #dce9f9); }
+.xp-button:active, .xp-control-button:active {
+  border-color: #7f7f7f #fff #fff #7f7f7f;
+  box-shadow: inset 1px 1px #777, inset -1px -1px #fff;
+  padding-top: 4px;
+  padding-bottom: 2px;
+}
+.xp-button:disabled { opacity: .55; cursor: not-allowed; }
+.xp-input, .xp-select { min-height: 26px; padding: 4px 7px; background: #fff; }
+.xp-input:focus, .xp-select:focus { outline: 1px solid #3573cf; outline-offset: 0; }
+.xp-checkbox { accent-color: #2463ca; }
+.xp-inset {
+  border: 1px solid;
+  border-color: #7f7f7f #fff #fff #7f7f7f;
+  box-shadow: inset 1px 1px #404040, inset -1px -1px #f8f8f2;
+  background: #fff;
+}
+.xp-divider { height: 1px; border: 0; background: #9c9b93; box-shadow: 0 1px #fff; }
+.xp-link { color: #0645ad; text-decoration: underline; cursor: pointer; }
+
+/* Native-looking scrollbars in WebKit/Blink; the fallback stays functional elsewhere. */
+* { scrollbar-color: #c8c6bc #f2f0e8; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 16px; height: 16px; }
+::-webkit-scrollbar-track { background: #ebe9df; border-left: 1px solid #d0cec4; }
+::-webkit-scrollbar-thumb {
+  border: 1px solid #fff;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #f4f2e9, #d9d6c8);
+  box-shadow: inset -1px -1px #85847c, inset 1px 1px #fff;
+}
+::-webkit-scrollbar-button { width: 16px; height: 16px; background: linear-gradient(#f8f7f0, #d8d5ca); border: 1px outset #f9f8f3; }
+::-webkit-scrollbar-corner { background: #ece9d8; }
